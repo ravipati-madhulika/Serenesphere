@@ -36,5 +36,3 @@ Start the app:
 4.npm start
 Open http://localhost:3000 in your browser.
 
-
-
