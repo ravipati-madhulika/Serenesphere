@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozy Pomodoro Timer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+        .bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(255, 200, 150, 0.1),
+                    rgba(255, 150, 100, 0.1));
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .balloon {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: 80px;
+            height: auto;
+        }
+
+        .balloon:hover {
+            transform: translateY(-5px);
+            filter: brightness(1.2);
+        }
+
+        .balloon.selected {
+            filter: drop-shadow(0 0 15px rgba(255, 220, 180, 0.9));
+            transform: translateY(-5px);
+        }
+
+        .timer-container {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 4px;
+        }
+
+        .digit {
+            background: #f8f8f8;
+            border-radius: 4px;
+            width: 60px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .digit.pink {
+            background: #E4A6AA;
+        }
+
+        .digit.gray {
+            background: #666666;
+        }
+        #start-btn img {
+    width: 250px; /* Increased size */
+    transition: transform 0.2s ease-in-out;
+}
+
+#start-btn img:hover {
+    transform: scale(1.1); /* Slightly larger on hover */
+}
+#stop-btn img {
+    width: 250px; /* Increased size */
+    transition: transform 0.2s ease-in-out;
+}
+
+
+
+
+    </style>
+</head>
+
+<body class="h-screen w-screen overflow-hidden bg-cover bg-center" style="background-image: url('assets/bg3.png');">
+
+
+
+
+    
+
+
+    <div class="bg h-full w-full relative">
+        <!-- Start Screen -->
+        <div id="start-screen" class="h-full w-full flex items-center justify-center">
+            <div class="relative w-full h-full">
+                <!-- Balloons -->
+                <img src="assets/5.png" class="balloon absolute left-[10%] top-[40%] w-24" data-minutes="5">
+                <img src="assets/10.png" class="balloon absolute left-[30%] top-[40%] w-24" data-minutes="10">
+                <img src="assets/15.png" class="balloon absolute left-[55%] top-[40%] w-24" data-minutes="15">
+                <img src="assets/25.png" class="balloon absolute right-[15%] top-[40%] w-24" data-minutes="25">
+
+                <!-- Start Button -->
+                <button id="start-btn" class="absolute right-8 bottom-7">
+                    <img src="./assets/start.png" class="w-32 hover:scale-105 transition-transform">
+                </button>
+            </div>
+        </div>
+
+        <!-- Timer Screen -->
+        <div id="timer-screen" class="hidden h-full w-full flex items-center justify-center">
+            <button id="stop-btn" class="absolute left-1 bottom-11 transform -translate-y-1/2">
+                <img src="./assets/stop.png" class="w-24 hover:scale-105 transition-transform">
+            </button>
+
+            <div class="timer-container">
+                <div id="minutes-tens" class="digit pink">0</div>
+                <div id="minutes-ones" class="digit pink">0</div>
+                <div id="seconds-tens" class="digit gray">0</div>
+                <div id="seconds-ones" class="digit gray">0</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>

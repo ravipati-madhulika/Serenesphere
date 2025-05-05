@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maze</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    
+    <h1><b>⚡MazeStorm: Electric Escape⚡</b></h1>
+    <button onclick="goBack()" class="back-button">Back</button>
+    <p><b>Use arrow keys to move the pikachu to Ash.</b></p>
+    <div class="controls">
+        <label for="difficulty">Select Difficulty:</label>
+        <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select>
+        <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <div class="game-container">
+        <div id="maze"></div>
+    </div>
+
+    <script src="scriptt.js"></script>
+   
+</body>
+</html>
